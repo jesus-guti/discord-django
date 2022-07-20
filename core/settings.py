@@ -44,6 +44,7 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
+    "api.apps.ApiConfig"
 ]
 
 THIRD_PARTY_APPS = [

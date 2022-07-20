@@ -7,11 +7,14 @@ const Room = () => {
     const [room, setRoom] = useState({})
 
     let getRoom = async () => {
-        let response = await fetch(`/api/rooms/${params.id}`)
-        let data = await response.json()
-        setRoom(data)
+        let response = await fetch(`/api/rooms/${params.id}`, {
+          headers: {
+            "Content-Type": "multipart/json"
+          }
+        })
+        setRoom(response.json())
       }
-
+      console.log(room)
       useEffect(() => {
         getRoom();
       },[])
@@ -20,7 +23,7 @@ const Room = () => {
         <div>
           <Navbar />
           <main>
-            <h5>{room.topic.name}</h5>
+            <h5>{room.name}</h5>
           </main>
         </div>
       )
