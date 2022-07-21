@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Rooms from '../components/Rooms'
+import RoomsSection from '../components/RoomsSection'
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
      <Navbar />
-     <Rooms /> 
+     <RoomsSection getRooms={props.getRooms} rooms={props.rooms}/> 
     </>
   )
 }

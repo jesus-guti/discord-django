@@ -10,7 +10,7 @@ import {
 
 function App() { 
     const [rooms, setRooms] = useState([])
-    const [hostList, setHostList] = useState([]);
+    const [userList, setUserList] = useState([]);
     const [topics, setTopics] = useState([]);
 
 
@@ -20,10 +20,10 @@ function App() {
       setRooms(data)
     }
 
-    let getHosts = async () => {
-      let response = await fetch('/api/rooms/')
+    let getUsers = async () => {
+      let response = await fetch('/api/users/')
       let data = await response.json()
-      setHostList(data)
+      setUserList(data)
     }
 
     let getTopics = async () => {
@@ -40,12 +40,11 @@ function App() {
             <Route path="rooms/:id" element={<Room getRooms={getRooms} rooms={rooms}/>} />
             <Route path="create-room" element={
               <CreateRoom 
-                getHosts={getHosts} 
-                hostList={hostList}
+                getUsers={getUsers} 
+                userList={userList}
                 getTopics={getTopics}
                 topics={topics}/>
             } />
-
         </Routes>
       </BrowserRouter>
     )
