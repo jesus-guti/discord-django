@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 const Room = () => {
     let params = useParams();
-    const [room, setRoom] = useState({
+     const [room, setRoom] = useState({
       "topic":{"name": ""},
       "host":{"username": ""}
     })

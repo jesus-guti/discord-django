@@ -1,23 +1,16 @@
-import {useState, useEffect, React} from 'react'
+import { useEffect } from 'react'
 
-const Rooms = () => {
-  let [rooms, setRooms] = useState([])
+const Rooms = (props) => {
 
     useEffect(() => {
-        getRooms()
+        props.getRooms()
     }, [])
-
-    let getRooms = async () => {
-        let response = await fetch('/api/rooms/')
-        let data = await response.json()
-        setRooms(data)
-    }
 
   return (
     <main>
         <h1 className='text-3xl'>Rooms</h1>
         <ol className='mb-4'>
-          {rooms.map(item => {
+          {props.rooms.map(item => {
             return (
             <li className='flex flex-col gap-6'>
               <p>@{item.host.username}</p>

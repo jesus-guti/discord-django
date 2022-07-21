@@ -1,15 +1,15 @@
-import React from "react"
+import { useState } from "react"
 import Home from "./pages/Home"
 import Room from "./pages/Room"
+import CreateRoom from "./pages/CreateRoom";
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
-import CreateRoom from "./pages/CreateRoom";
 
 function App() { 
-    const [rooms, setRooms] = useState({})
+    const [rooms, setRooms] = useState([])
     const [hostList, setHostList] = useState([]);
     const [topics, setTopics] = useState([]);
 
@@ -36,10 +36,8 @@ function App() {
     return ( 
       <BrowserRouter>
         <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="rooms" element={<Room />}>
-              <Route path=":id" element={<Room getRooms={getRooms} rooms={rooms}/>} />
-            </Route>
+            <Route exact path="/" element={<Home getRooms={getRooms} rooms={rooms}/>} />
+            <Route path="rooms/:id" element={<Room getRooms={getRooms} rooms={rooms}/>} />
             <Route path="create-room" element={
               <CreateRoom 
                 getHosts={getHosts} 
