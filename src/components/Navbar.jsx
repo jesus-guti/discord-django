@@ -2,10 +2,9 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>
-        <h1>LOGO</h1>
-        <hr />
-    </div>
+    <header className='h-[8vh] flex border-b-2 flex-col align-middle justify-center'>
+        <h1 className="text-3xl">LOGO</h1>
+    </header>
   )
 }
 
