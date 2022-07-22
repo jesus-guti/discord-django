@@ -15,6 +15,14 @@
     --color-error: #fc4b0b;
 }
 
+* {
+    font-family: "DM-sans", sans-serif;
+}
+
 .h-main {
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
+}
+
+.w-main {
+    width: 1200px;
 }

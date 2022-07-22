@@ -31,6 +31,7 @@ module.exports = {
                 "color-success": "#5dd693",
                 "color-error": "#fc4b0b"
             }
+
         },
     },
     plugins: [],
