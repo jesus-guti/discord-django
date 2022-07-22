@@ -1,6 +1,5 @@
 import { React, useEffect, useState} from 'react'
 import { useParams } from "react-router-dom";
-import Navbar from '../components/Navbar';
 
 const Room = () => {
     let params = useParams();
@@ -24,12 +23,9 @@ const Room = () => {
 
       return (
         <div>
-          <Navbar />
-          <main>
             <h5>{room.topic.name}</h5>
             <h5>{room.name}</h5>
             <small>@{room.host.username}</small>
-          </main>
         </div>
       )
 }

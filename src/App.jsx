@@ -2,6 +2,7 @@ import { useState } from "react"
 import Home from "./pages/Home"
 import Room from "./pages/Room"
 import CreateRoom from "./pages/CreateRoom";
+import Navbar from "./components/Navbar";
 import {
   BrowserRouter,
   Routes,
@@ -35,17 +36,20 @@ function App() {
 
     return ( 
       <BrowserRouter>
-        <Routes>
-            <Route exact path="/" element={<Home getRooms={getRooms} rooms={rooms}/>} />
-            <Route path="rooms/:id" element={<Room getRooms={getRooms} rooms={rooms}/>} />
-            <Route path="create-room" element={
-              <CreateRoom 
+        <Navbar />
+        <main className="bg-color-bg h-main">
+          <Routes>
+              <Route exact path="/" element={<Home getRooms={getRooms} rooms={rooms}/>} />
+              <Route path="rooms/:id" element={<Room getRooms={getRooms} rooms={rooms}/>} />
+              <Route path="create-room" element={
+                <CreateRoom 
                 getUsers={getUsers} 
                 userList={userList}
                 getTopics={getTopics}
                 topics={topics}/>
-            } />
-        </Routes>
+              } />
+          </Routes>
+        </main>
       </BrowserRouter>
     )
 }
