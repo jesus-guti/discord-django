@@ -37,7 +37,7 @@ function App() {
     return ( 
       <BrowserRouter>
         <Navbar />
-        <main className="bg-color-bg h-main">
+        <main className="bg-color-bg h-main grid justify-items-center">
           <Routes>
               <Route exact path="/" element={<Home getRooms={getRooms} rooms={rooms}/>} />
               <Route path="rooms/:id" element={<Room getRooms={getRooms} rooms={rooms}/>} />
