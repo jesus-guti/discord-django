@@ -3,9 +3,10 @@ import userIcon from '../assets/images/user.png'
 import groupIcon from '../assets/images/group.png'
 
 const Rooms = (props) => {
-
-    useEffect(() => {
-        props.getRooms()
+  
+  
+  useEffect(() => {
+      props.getRooms()
     }, [])
 
   return (

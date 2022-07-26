@@ -5,10 +5,13 @@ const CreateRoom = (props) => {
 
     const [roomForm, setRoomForm] = useState(
         {
+            id: '',
             host: '', 
             topic: '', 
             name: '', 
-            description: '', 
+            description: '',
+            updated: "",
+            created: "",
         }
     )
 
@@ -25,17 +28,16 @@ const CreateRoom = (props) => {
         event.preventDefault()
         fetch('/api/rooms/', {
             method: 'POST',
-            body: roomForm,
+            body: JSON.stringify(roomForm),
             headers: {
                 'Content-type': 'application/json',
                 'X-CSRFToken': await getCsrfToken()
             },
-            credentials: 'include',
+            credentials: 'include'
         })
         .catch(error => console.error('Error:', error))
         .then(response => console.log('Success:', response));
     }
-    
     
     
     useEffect(() => {

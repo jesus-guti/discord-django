@@ -1,4 +1,3 @@
-from attr import field
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Room
@@ -19,14 +18,12 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class RoomSerializer(serializers.ModelSerializer):
-    topic = TopicSerializer()
-    host = UserSerializer()
 
     class Meta:
         model = Room
-        fields = ['id', 'name', 'topic', 'host', 'description']
+        fields = '__all__'
 
-    """ def to_representation(self, instance):
+    def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['topic'] = {
             "id": instance.topic.id,
@@ -36,4 +33,4 @@ class RoomSerializer(serializers.ModelSerializer):
             "id": instance.host.id,
             "username": instance.host.username
         }
-        return representation """
+        return representation

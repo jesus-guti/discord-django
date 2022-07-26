@@ -41,9 +41,11 @@ class RoomsList(APIView):
     def get(self, request, format=None):
         rooms = Room.objects.all()
         serializer = RoomSerializer(rooms, many=True)
+        print()
         return Response(serializer.data)
 
     def post(self, request, format=None):
+        print("peticion rooms", request.data)
         serializer = RoomSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -66,6 +68,13 @@ class RoomDetail(APIView):
         room = self.get_object(pk)
         serializer = RoomSerializer(room)
         return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = RoomSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk, format=None):
         room = self.get_object(pk)
