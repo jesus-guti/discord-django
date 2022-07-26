@@ -33,3 +33,19 @@
     height: 3rem;
     width: fit-content;
 }
+
+.form-input {
+    width: 100%;
+    padding: .55rem .4rem;
+    border: 1px solid var(--color-dark-light);
+    background-color: transparent;
+    border-radius: 4px;
+    color: var(--color-main-light);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.form-input:focus {
+    border-color: #71c6dd;
+    outline: none;
+}

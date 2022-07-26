@@ -27,7 +27,7 @@ const Rooms = (props) => {
                 <span className='text-color-main ml-0 mr-auto'>Host @{item.host.username}</span>
                 <span className='text-color-light-gray'>6 months, 3 weeks ago</span>
               </div>
-              <a className='text-2xl text-color-main-light ' href={`rooms/${item.id}`}>{item.name}</a>
+              <a className='text-xl text-color-main-light ' href={`rooms/${item.id}`}>{item.name}</a>
               <hr className='border-t-[#51546e]'/>
               <div className='flex'>
                 <div className='flex items-center'><img src={groupIcon} alt="" className='mr-2' /><span className='text-color-light-gray text-sm'>0 Joined</span></div>
